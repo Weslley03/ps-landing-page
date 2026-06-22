@@ -1,0 +1,109 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.podium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: end;
+  gap: 10px;
+}
+
+.column {
+  --pc: var(--gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  border: 2px solid var(--tier-weak);
+  background: var(--surface-2);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.colName {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.colPoints {
+  font-size: 11px;
+  color: var(--muted-2);
+}
+
+.bar {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  border-radius: var(--r-micro) var(--r-micro) 0 0;
+  border: 1px solid color-mix(in srgb, var(--pc) 50%, transparent);
+  border-bottom: none;
+  background: color-mix(in srgb, var(--pc) 10%, transparent);
+}
+
+.column[data-pos='1'] .bar {
+  height: 70px;
+}
+.column[data-pos='2'] .bar {
+  height: 52px;
+}
+.column[data-pos='3'] .bar {
+  height: 38px;
+}
+
+.rank {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--pc);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 22px 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--r-micro);
+  background: var(--surface);
+  font-size: 13px;
+}
+
+/* Zona de classificação (4º ao 6º) destacada em verde, como no app. */
+.pos {
+  font-weight: 700;
+  color: var(--tier-great);
+}
+
+.name {
+  color: var(--muted);
+}
+
+.points {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.pct {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted-2);
+  min-width: 34px;
+  text-align: right;
+}

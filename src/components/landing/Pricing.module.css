@@ -1,0 +1,256 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+  align-items: stretch;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px 24px;
+  border-radius: var(--r-container);
+  border: 1px solid var(--border-weak);
+  background: var(--surface);
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--border);
+  transform: translateY(-3px);
+}
+
+/* Plano recomendado destacado só por borda/peso - sem cor fora da paleta. */
+.card[data-recommended='true'] {
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+  box-shadow: 0 20px 60px -30px rgba(255, 255, 255, 0.25);
+}
+
+.ribbon {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border);
+  background: var(--text);
+  color: #000;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.audience {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--muted-2);
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.priceValue {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.priceNote {
+  font-size: 14px;
+  color: var(--muted-2);
+}
+
+/* Limites: o diferencial entre planos, destacado num bloco próprio. */
+.limits {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  padding: 16px 18px;
+  border-radius: var(--r-item);
+  border: 1px solid var(--border-weak);
+  background: var(--surface-2);
+}
+
+.limit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.limit svg {
+  flex-shrink: 0;
+  color: var(--muted-2);
+}
+
+.limit strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Painel único: tudo que vem incluso em qualquer plano. */
+.included {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 24px;
+  border-radius: var(--r-container);
+  border: 1px solid var(--border-weak);
+  background: var(--surface);
+}
+
+.includedTitle {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-2);
+}
+
+.includedList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px 20px;
+}
+
+.includedList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.includedList li svg {
+  flex-shrink: 0;
+  color: var(--success);
+}
+
+.cta {
+  text-align: center;
+  border-radius: var(--r-pill);
+  padding: 13px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.cta:hover {
+  background: var(--hover);
+  border-color: var(--border-strong);
+}
+
+.cta[data-primary='true'] {
+  background: var(--text);
+  color: #000;
+  border-color: var(--text);
+}
+
+.cta[data-primary='true']:hover {
+  transform: translateY(-2px);
+}
+
+.note {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted-2);
+}
+
+/* Skeleton de carregamento: mesma grade/altura dos cards, sem conteúdo. */
+.skeleton {
+  min-height: 360px;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.error {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 32px 24px;
+  border-radius: var(--r-container);
+  border: 1px solid var(--border-weak);
+  background: var(--surface);
+  text-align: center;
+  color: var(--muted);
+}
+
+.retry {
+  border-radius: var(--r-pill);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  background: transparent;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.retry:hover {
+  background: var(--hover);
+  border-color: var(--border-strong);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+  .includedList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .includedList {
+    grid-template-columns: 1fr;
+  }
+}

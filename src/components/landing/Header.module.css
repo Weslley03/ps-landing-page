@@ -1,0 +1,133 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    backdrop-filter 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.header[data-scrolled='true'] {
+  background: rgba(13, 13, 13, 0.72);
+  backdrop-filter: blur(14px);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding: 14px var(--pad);
+}
+
+.brand {
+  display: inline-flex;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link {
+  border-radius: var(--r-pill);
+  outline: 0.5px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  transition:
+    color 0.15s ease,
+    outline-color 0.15s ease;
+}
+
+.link:hover {
+  color: rgba(255, 255, 255, 0.9);
+  outline-color: rgba(255, 255, 255, 0.35);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cta {
+  border-radius: var(--r-pill);
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  background: var(--text);
+  transition: transform 0.15s ease;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+}
+
+.toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-micro);
+  border: 1px solid var(--border-weak);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.mobileNav {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px var(--pad) 16px;
+  background: rgba(13, 13, 13, 0.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobileLink {
+  padding: 12px 14px;
+  border-radius: var(--r-item);
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.mobileLink:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+.mobileCta {
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: var(--r-pill);
+  text-align: center;
+  font-weight: 600;
+  color: #000;
+  background: var(--text);
+}
+
+@media (max-width: 760px) {
+  .nav {
+    display: none;
+  }
+  .cta {
+    display: none;
+  }
+  .toggle {
+    display: inline-flex;
+  }
+  .mobileNav {
+    display: flex;
+  }
+}

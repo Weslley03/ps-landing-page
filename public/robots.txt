@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://comprar.player-statistics.online/sitemap.xml

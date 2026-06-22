@@ -1,0 +1,259 @@
+.card {
+  --tc: var(--tier-weak);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
+  padding: 18px 20px;
+  border-radius: var(--r-card);
+  border: 1px solid color-mix(in srgb, var(--tc) 35%, transparent);
+  background: var(--surface);
+  /* Glow só em tier (semântico), proporcional ao nível. */
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--tc) 12%, transparent),
+    0 18px 50px -20px color-mix(in srgb, var(--tc) 45%, transparent);
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-card);
+  background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--tc) 16%, transparent) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.card[data-featured='true'] {
+  max-width: 340px;
+  padding: 22px 24px;
+}
+
+.card[data-block='true'] {
+  max-width: none;
+}
+
+/* ---- Identity row ---- */
+.identity {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.overallBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 52px;
+}
+
+.overallBadge {
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -1.5px;
+  color: var(--tc);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--tc) 30%, transparent);
+}
+
+.card[data-featured='true'] .overallBadge {
+  font-size: 56px;
+}
+
+.positionTag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--tc) 70%, transparent);
+}
+
+/* ---- Avatar ---- */
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--r-pill);
+  flex-shrink: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface-2);
+  outline: 2px solid color-mix(in srgb, var(--tc) 45%, transparent);
+  outline-offset: 3px;
+  box-shadow: 0 0 16px -4px color-mix(in srgb, var(--tc) 60%, transparent);
+}
+
+.card[data-featured='true'] .avatar {
+  width: 80px;
+  height: 80px;
+  font-size: 26px;
+}
+
+/* ---- Info ---- */
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #f0f0f0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.card[data-featured='true'] .name {
+  font-size: 22px;
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tierLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #000;
+  background: var(--tc);
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+}
+
+.mvpBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  color: var(--tier-legendary);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  background: rgba(255, 215, 0, 0.06);
+}
+
+/* ---- Meta (país · camisa · pé dominante) ---- */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flag {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  outline: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--muted-2);
+}
+
+.metaHash {
+  color: var(--muted-3);
+  margin-right: 1px;
+}
+
+.metaFoot {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border-weak);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+/* ---- Brasão do clube (mock) ---- */
+.crest {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: var(--r-micro);
+  border: 1px solid var(--border-weak);
+  background: var(--surface-2);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+/* ---- Quick stats ---- */
+.quickStats {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--divider);
+  padding-top: 14px;
+}
+
+.stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 8%;
+  height: 84%;
+  width: 1px;
+  background: var(--divider);
+}
+
+.statValue {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+.statLabel {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted-3);
+}
+
+@media (max-width: 480px) {
+  .card,
+  .card[data-featured='true'] {
+    max-width: 100%;
+  }
+}

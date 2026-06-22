@@ -1,0 +1,99 @@
+.field {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-width: 360px;
+  margin-inline: auto;
+  border-radius: var(--r-item);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--field);
+  overflow: hidden;
+}
+
+.lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.center,
+.circle,
+.boxTop,
+.boxBottom {
+  position: absolute;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.center {
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.circle {
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--r-pill);
+}
+
+.boxTop,
+.boxBottom {
+  left: 28%;
+  right: 28%;
+  height: 14%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.boxTop {
+  top: 0;
+  border-top: none;
+}
+
+.boxBottom {
+  bottom: 0;
+  border-bottom: none;
+}
+
+.player {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  transform: translate(-50%, -50%);
+}
+
+.dotRing {
+  /* --tc é herdado do .player (cor do tier sorteado); não redeclarar aqui,
+     senão a borda fica sempre cinza. */
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-pill);
+  border: 2px solid var(--tc, var(--tier-weak));
+  background: rgba(0, 0, 0, 0.45);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 0 14px -2px color-mix(in srgb, var(--tc, var(--tier-weak)) 75%, transparent);
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.pos {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+}

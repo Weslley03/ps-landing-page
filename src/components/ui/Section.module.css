@@ -1,0 +1,16 @@
+.section {
+  padding: clamp(24px, 5vw, 48px) var(--pad);
+}
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+}
+
+.panel {
+  padding: clamp(28px, 5vw, 56px);
+  border-radius: var(--r-container);
+  border: 1px solid var(--border-weak);
+  background: var(--surface);
+}

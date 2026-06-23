@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { ExternalLink, Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '../../data/mock'
+import { PLATFORM_DEMO_URL } from '../../data/demo'
 import { Wordmark } from '../ui/Wordmark'
 import styles from './Header.module.css'
 
@@ -32,6 +33,11 @@ export function Header() {
         </nav>
 
         <div className={styles.actions}>
+          {PLATFORM_DEMO_URL && (
+            <a className={styles.demo} href={PLATFORM_DEMO_URL} target='_blank' rel='noopener noreferrer'>
+              Acessar plataforma <ExternalLink size={14} />
+            </a>
+          )}
           <a className={styles.cta} href='/#planos'>
             Criar meu grupo
           </a>
@@ -48,6 +54,11 @@ export function Header() {
               {link.label}
             </a>
           ))}
+          {PLATFORM_DEMO_URL && (
+            <a className={styles.mobileDemo} href={PLATFORM_DEMO_URL} target='_blank' rel='noopener noreferrer' onClick={() => setOpen(false)}>
+              Acessar plataforma <ExternalLink size={15} />
+            </a>
+          )}
           <a className={styles.mobileCta} href='/#planos' onClick={() => setOpen(false)}>
             Criar meu grupo
           </a>

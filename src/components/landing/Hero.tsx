@@ -1,5 +1,6 @@
-import { ArrowRight, Trophy } from 'lucide-react'
+import { ArrowRight, ExternalLink, Trophy } from 'lucide-react'
 import { HERO_PLAYER } from '../../data/mock'
+import { PLATFORM_DEMO_URL } from '../../data/demo'
 import { PlayerCard } from '../mockups/PlayerCard'
 import styles from './Hero.module.css'
 
@@ -29,6 +30,11 @@ export function Hero() {
             <a className={styles.secondary} href='#funcionalidades'>
               Ver funcionalidades
             </a>
+            {PLATFORM_DEMO_URL && (
+              <a className={styles.demo} href={PLATFORM_DEMO_URL} target='_blank' rel='noopener noreferrer'>
+                Conheça a plataforma por dentro <ExternalLink size={16} />
+              </a>
+            )}
           </div>
 
           <dl className={styles.proof}>
